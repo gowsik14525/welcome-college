@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Website</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .course {
+            border: 1px solid #ddd;
+            background-color: #fff;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        label {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our College</h1>
+        <nav>
+            <a href="#" onclick="showPage('home')">Home</a>
+            <a href="#" onclick="showPage('courses')">Courses</a>
+            <a href="#" onclick="showPage('admission')">Admission</a>
+            <a href="#" onclick="showPage('contact')">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <div id="homePage" class="container">
+            <section>
+                <h2>About Us</h2>
+                <p>Welcome to our college. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin fringilla ipsum a risus consequat, sit amet feugiat elit posuere.</p>
+                <p>Nulla facilisi. Integer a tellus sed ante pellentesque efficitur. Fusce sed sapien sed ex varius laoreet. In sed arcu a elit tincidunt lacinia a at ipsum.</p>
+            </section>
+        </div>
+        <div id="coursesPage" class="container" style="display: none;">
+            <section>
+                <h2>Our Courses</h2>
+                <div class="course">
+                    <h3>Bachelor of Science in Computer Science</h3>
+                    <p>Duration: 4 years</p>
+                    <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum lorem ut leo vehicula, non mattis lectus condimentum.</p>
+                </div>
+                <div class="course">
+                    <h3>Bachelor of Arts in Economics</h3>
+                    <p>Duration: 3 years</p>
+                    <p>Description: Sed auctor vestibulum sem, eu posuere ipsum efficitur ut. Donec varius ligula id risus ultrices ullamcorper.</p>
+                </div>
+                <div class="course">
+                    <h3>Bachelor of Business Administration</h3>
+                    <p>Duration: 4 years</p>
+                    <p>Description: Nunc aliquam nulla eget lacus iaculis, a tincidunt libero fringilla. Mauris sit amet lacus at enim aliquet lacinia.</p>
+                </div>
+            </section>
+        </div>
+        <div id="admissionPage" class="container" style="display: none;">
+            <section>
+                <h2>Admission Information</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget ante eu quam tristique cursus. Nam ultrices mauris a vehicula.</p>
+                <p>Etiam at ante a nibh aliquam scelerisque. Duis euismod quam ac lectus tincidunt auctor. In consequat felis at nisi suscipit, eu convallis lorem feugiat.</p>
+            </section>
+        </div>
+        <div id="contactPage" class="container" style="display: none;">
+            <section>
+                <h2>Contact Us</h2>
+                <form id="contactForm">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Our College</p>
+    </footer>
+    <script>
+        function showPage(page) {
+            document.getElementById('homePage').style.display = 'none';
+            document.getElementById('coursesPage').style.display = 'none';
+            document.getElementById('admissionPage').style.display = 'none';
+            document.getElementById('contactPage').style.display = 'none';
+
+            document.getElementById(`${page}Page`).style.display = 'block';
+        }
+
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            alert(`Thank you, ${name}. We have received your message: "${message}" and will respond to ${email} shortly.`);
+            this.reset();
+        });
+    </script>
+</body>
+</html>
